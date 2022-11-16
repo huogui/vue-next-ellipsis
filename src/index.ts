@@ -1,7 +1,11 @@
+import type { App } from 'vue'
 import Ellipsis from './components/ellipsis.vue'
 
-export default Ellipsis
+export { Ellipsis }
 
-export * from './components/ellipsis.vue'
-export * from './components/ellipsis'
+export default {
+  install(app: App) {
+    app.component('Ellipsis', Ellipsis)
+  },
+}
 

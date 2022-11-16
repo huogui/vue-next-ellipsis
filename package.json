@@ -1,23 +1,22 @@
 {
-  "name": "ellipsis-next",
-  "private": true,
+  "name": "vue-next-ellipsis",
   "version": "0.0.0",
   "type": "module",
-  "main": "./lib/ellipsis-next.umd.js",
-  "module": "./lib/ellipsis-next.es.js",
+  "main": "./dist/vue-next-ellipsis.umd.cjs",
+  "module": "./dist/vue-next-ellipsis.js",
   "exports": {
     ".": {
-      "import": "./lib/ellipsis-next.es.js",
-      "require": "./lib/ellipsis-next.umd.js"
+      "import": "./dist/vue-next-ellipsis.js",
+      "require": "./dist/vue-next-ellipsis.umd.cjs"
     },
-    "./lib/style.css": {
-      "import": "./lib/style.css",
-      "require": "./lib/style.css"
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "types": "./types/index.d.ts",
   "files": [
-    "lib",
+    "dist",
     "types"
   ],
   "scripts": {
@@ -31,6 +30,7 @@
   },
   "devDependencies": {
     "@huogui/eslint-config": "^1.1.30",
+    "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
     "eslint": "^8.27.0",
     "typescript": "^4.6.4",
