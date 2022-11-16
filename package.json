@@ -3,9 +3,26 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "./lib/ellipsis-next.umd.js",
+  "module": "./lib/ellipsis-next.es.js",
+  "exports": {
+    ".": {
+      "import": "./lib/ellipsis-next.es.js",
+      "require": "./lib/ellipsis-next.umd.js"
+    },
+    "./lib/style.css": {
+      "import": "./lib/style.css",
+      "require": "./lib/style.css"
+    }
+  },
+  "types": "./types/index.d.ts",
+  "files": [
+    "lib",
+    "types"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "tsc && vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

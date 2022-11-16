@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, defineComponent, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { ellipsisEmits, ellipsisProps } from './ellipsis'
 
 const props = defineProps(ellipsisProps)
@@ -8,10 +8,10 @@ const emit = defineEmits(ellipsisEmits)
 
 const { content, foldVisible, rows, ellipsisText, foldText } = props
 
-const beforeRefresh = ref(null)
+const beforeRefreshFunc = ref<() => void>()
 const realContentLenth = ref(0)
-const realContentBox = ref(null)
-const realContentBoxTail = ref(null)
+const realContentBoxRef = ref<HTMLElement>()
+const realContentBoxTailRef = ref<HTMLElement>()
 
 const realContent = computed(() => {
   return content.substr(0, realContentLenth.value)
@@ -21,17 +21,20 @@ const watchData = computed(() => {
 })
 
 const refresh = async () => {
-  beforeRefresh.value && beforeRefresh()
+  beforeRefreshFunc.value && (beforeRefreshFunc.value)()
   let stopLoop = false
-  beforeRefresh.value = () => { stopLoop = true }
+  beforeRefreshFunc.value = () => { stopLoop = true }
   realContentLenth.value = content.length
-  const checkLoop = async (start, end) => {
+  const checkLoop = async (start: number, end: number) => {
     if (stopLoop || start + 1 >= end) {
-      beforeRefresh.value = null
+      beforeRefreshFunc.value = undefined
       return
     }
-    const realContentBoxRect = realContentBox.value.getBoundingClientRect()
-    const realContentBoxTailRect = realContentBoxTail.value.getBoundingClientRect()
+    const realContentBoxRect = realContentBoxRef.value && realContentBoxRef.value.getBoundingClientRect()
+    const realContentBoxTailRect = realContentBoxTailRef.value && realContentBoxTailRef.value.getBoundingClientRect()
+
+    if (!realContentBoxRect || !realContentBoxTailRect)
+      return
 
     const overflow = realContentBoxTailRect.bottom > realContentBoxRect.bottom
 
@@ -48,7 +51,7 @@ const refresh = async () => {
   checkLoop(0, realContentLenth.value)
 }
 
-const foldClickHandle = (event) => {
+const foldClickHandle = (event: MouseEvent | TouchEvent) => {
   emit('foldClick', event)
 }
 watch(watchData, () => {
@@ -60,13 +63,13 @@ watch(watchData, () => {
   <div class="r-ellipsis-container" role="ellipsisContainer">
     <div class="r-ellipsis__shadow">
       <textarea :rows="rows" readonly />
-      <div ref="realContentBox" class="r-ellipsis__shadow-box">
+      <div ref="realContentBoxRef" class="r-ellipsis__shadow-box">
         <span>{{ realContent }}</span>
         <slot name="ellipsis">
           <span>{{ ellipsisText }}</span>
           <span class="r-ellipsis__ellipsis-btn">{{ foldText }}</span>
         </slot>
-        <span ref="realContentBoxTail" />
+        <span ref="realContentBoxTailRef" />
       </div>
     </div>
     <div class="r-ellipsis__real-box" role="realBox">

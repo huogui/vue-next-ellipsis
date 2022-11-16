@@ -16,12 +16,9 @@ content.value = '111111111111111111111111111111111111111111111111111111111111111
   </div>
 </template>
 
-<style scoped>
-body,html{
-  padding:0;
-  margin:0;
-}
+<style scoped lang="scss">
 .ellipsis-wrapper{
-   word-break: break-all;
+    word-break: break-all;
+    font-size:20px;
 }
 </style>
