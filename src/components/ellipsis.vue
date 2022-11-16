@@ -1,14 +1,59 @@
 <script setup lang="ts">
-import { computed, defineComponent, ref } from 'vue'
-import { ellipsisProps } from './ellipsis'
+import { computed, defineComponent, nextTick, ref, watch } from 'vue'
+import { ellipsisEmits, ellipsisProps } from './ellipsis'
 
 const props = defineProps(ellipsisProps)
-const { content } = props
+
+const emit = defineEmits(ellipsisEmits)
+
+const { content, foldVisible, rows, ellipsisText, foldText } = props
+
 const beforeRefresh = ref(null)
 const realContentLenth = ref(0)
+const realContentBox = ref(null)
+const realContentBoxTail = ref(null)
+
 const realContent = computed(() => {
-  return this.content.substr(0, this.realContentLenth)
+  return content.substr(0, realContentLenth.value)
 })
+const watchData = computed(() => {
+  return [content, foldText, ellipsisText, rows, foldVisible]
+})
+
+const refresh = async () => {
+  beforeRefresh.value && beforeRefresh()
+  let stopLoop = false
+  beforeRefresh.value = () => { stopLoop = true }
+  realContentLenth.value = content.length
+  const checkLoop = async (start, end) => {
+    if (stopLoop || start + 1 >= end) {
+      beforeRefresh.value = null
+      return
+    }
+    const realContentBoxRect = realContentBox.value.getBoundingClientRect()
+    const realContentBoxTailRect = realContentBoxTail.value.getBoundingClientRect()
+
+    const overflow = realContentBoxTailRect.bottom > realContentBoxRect.bottom
+
+    if (overflow)
+      end = realContentLenth.value
+    else
+      start = realContentLenth.value
+
+    realContentLenth.value = Math.floor((start + end) / 2)
+    await nextTick()
+    checkLoop(start, end)
+  }
+  await nextTick()
+  checkLoop(0, realContentLenth.value)
+}
+
+const foldClickHandle = (event) => {
+  emit('foldClick', event)
+}
+watch(watchData, () => {
+  refresh()
+}, { immediate: true })
 </script>
 
 <template>

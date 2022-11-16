@@ -16,6 +16,7 @@ export const ellipsisProps = {
     type: Number,
     default: 3,
   },
+  foldVisible: Boolean,
   foldText: {
     type: String,
     default: '全部>',
@@ -26,5 +27,8 @@ export const ellipsisProps = {
   },
 }
 
-export type EllipsisType = ExtractPropTypes<typeof ellipsisProps>
+export const ellipsisEmits = {
+  foldClick: (evt: Event) => evt instanceof Event,
+}
 
+export type EllipsisType = ExtractPropTypes<typeof ellipsisProps>
