@@ -1,6 +1,6 @@
 {
   "name": "vue-next-ellipsis",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "type": "module",
   "main": "./dist/vue-next-ellipsis.umd.cjs",
   "module": "./dist/vue-next-ellipsis.js",
