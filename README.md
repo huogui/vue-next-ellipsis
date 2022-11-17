@@ -36,23 +36,9 @@ import VueNextEllipsis from 'vue-next-ellipsis'
 export default {
   data: function () {
     return {
-      width: 0,
-      height: 0,
-      x: 0,
-      y: 0
     }
   },
   methods: {
-    onResize: function (x, y, width, height) {
-      this.x = x
-      this.y = y
-      this.width = width
-      this.height = height
-    },
-    onDrag: function (x, y) {
-      this.x = x
-      this.y = y
-    }
   }
 }
 </script>
