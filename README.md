@@ -26,7 +26,9 @@ You may now use the component in your markup
       content="测试文字测试文字测试文字测试文字测试文字测试文字测试文字"
       :rows="3"
       fold-text="全文>"
-      ellipsis-text="...">
+      ellipsis-text="..."
+      >
+    </vue-next-ellipsis>
   </div>
 </template>
 
