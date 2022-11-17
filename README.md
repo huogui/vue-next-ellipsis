@@ -7,43 +7,39 @@ $ npm install vue-next-ellipsis
 
 Register the component
 
-```js
-import Vue from 'vue'
-import VueNextEllipsis from 'vue-next-ellipsis'
+```html
+<script lang="ts" setup>
+import { Ellipsis } from 'vue-next-ellipsis';
+import 'vue-next-ellipsis/dist/style.css';
 
-// optionally import default styles
-import 'vue-next-ellipsis/dist/style.css'
-
-Vue.component('vue-next-ellipsis', VueNextEllipsis)
-```
-
-You may now use the component in your markup
-
-```vue
+</script>
 <template>
-  <div style="height: 500px; width: 500px; border: 1px solid red; position: relative;">
-   <vue-next-ellipsis  
-      content="测试文字测试文字测试文字测试文字测试文字测试文字测试文字"
+  <div style="font-size:20px">
+    <ellipsis
+      content="测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字"
       :rows="3"
       fold-text="全文>"
       ellipsis-text="..."
-      >
-    </vue-next-ellipsis>
+    />
   </div>
 </template>
+```
+or
 
-<script>
-import VueNextEllipsis from 'vue-next-ellipsis'
+```ts
+//main.ts
+import { createApp } from 'vue';
+import App from './App.vue';
+import Ellipsis from 'vue-next-ellipsis';
+import 'vue-next-ellipsis/dist/style.css';
 
-export default {
-  data: function () {
-    return {
-    }
-  },
-  methods: {
-  }
-}
-</script>
+const app = createApp(App);
+
+app.use(Ellipsis);
+
+app.mount('#app');
+
 ```
 
-### Props
+
+
