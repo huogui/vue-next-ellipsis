@@ -15,6 +15,11 @@
     }
   },
   "types": "./types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huogui/vue-next-ellipsis"
+  },
+  "homepage": "https://huogui.github.io/vue-next-ellipsis",
   "files": [
     "dist",
     "types"
