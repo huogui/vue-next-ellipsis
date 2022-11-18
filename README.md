@@ -15,7 +15,7 @@ import 'vue-next-ellipsis/dist/style.css';
 </script>
 <template>
   <div style="font-size:20px">
-    <ellipsis
+    <Ellipsis
       content="测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字测试文字"
       :rows="3"
       fold-text="全文>"
@@ -27,17 +27,17 @@ import 'vue-next-ellipsis/dist/style.css';
 or
 
 ```ts
-//main.ts
-import { createApp } from 'vue';
-import App from './App.vue';
-import Ellipsis from 'vue-next-ellipsis';
-import 'vue-next-ellipsis/dist/style.css';
+// main.ts
+import { createApp } from 'vue'
+import Ellipsis from 'vue-next-ellipsis'
+import App from './App.vue'
+import 'vue-next-ellipsis/dist/style.css'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(Ellipsis);
+app.use(Ellipsis)
 
-app.mount('#app');
+app.mount('#app')
 
 ```
 
