@@ -27,12 +27,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vue-tsc --noEmit && vite build",
-    "preview": "npm run -C playground npm install && npm run -C playground build",
+    "preview": "cd playground && npm i && npm run -C playground build",
     "release": "standard-version"
   },
   "dependencies": {
     "sass": "^1.56.1",
     "vue": "^3.2.41"
+  },
+  "peerDependencies": {
+    "vite": "^2.0.0"
   },
   "devDependencies": {
     "@huogui/eslint-config": "^1.1.30",
