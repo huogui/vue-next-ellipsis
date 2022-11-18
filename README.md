@@ -10,8 +10,6 @@ Register the component
 ```html
 <script lang="ts" setup>
 import { Ellipsis } from 'vue-next-ellipsis';
-import 'vue-next-ellipsis/dist/style.css';
-
 </script>
 <template>
   <div style="font-size:20px">
@@ -31,7 +29,6 @@ or
 import { createApp } from 'vue'
 import Ellipsis from 'vue-next-ellipsis'
 import App from './App.vue'
-import 'vue-next-ellipsis/dist/style.css'
 
 const app = createApp(App)
 
