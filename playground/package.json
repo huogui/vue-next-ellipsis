@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:playground": "vue-tsc && vite build",
+    "build:playground": "vite build",
     "preview": "vite preview",
     "pre":"npm install"
   },
