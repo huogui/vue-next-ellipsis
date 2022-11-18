@@ -34,6 +34,9 @@ const refresh = async () => {
     const realContentBoxRect = useElementBounding(realContentBoxRef)
     const realContentBoxTailRect = useElementBounding(realContentBoxTailRef)
 
+    if (!realContentBoxRect || !realContentBoxTailRect)
+      return
+
     const overflow = realContentBoxTailRect.bottom > realContentBoxRect.bottom
 
     if (overflow)
