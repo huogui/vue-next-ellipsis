@@ -31,7 +31,7 @@ importers:
 
   playground:
     specifiers:
-      vue-next-ellipsis: workspace:*
+      vue-next-ellipsis: workspace:^0.0.2-alpha.1
     dependencies:
       vue-next-ellipsis: link:..
 
