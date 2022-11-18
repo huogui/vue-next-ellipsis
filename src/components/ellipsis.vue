@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue'
+import { useElementBounding } from '../composables'
 import { ellipsisEmits, ellipsisProps } from './ellipsis'
 
 const props = defineProps(ellipsisProps)
@@ -30,11 +31,8 @@ const refresh = async () => {
       beforeRefreshFunc.value = undefined
       return
     }
-    const realContentBoxRect = realContentBoxRef.value && realContentBoxRef.value.getBoundingClientRect()
-    const realContentBoxTailRect = realContentBoxTailRef.value && realContentBoxTailRef.value.getBoundingClientRect()
-
-    if (!realContentBoxRect || !realContentBoxTailRect)
-      return
+    const realContentBoxRect = useElementBounding(realContentBoxRef)
+    const realContentBoxTailRect = useElementBounding(realContentBoxTailRef)
 
     const overflow = realContentBoxTailRect.bottom > realContentBoxRect.bottom
 
