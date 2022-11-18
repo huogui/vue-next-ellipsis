@@ -3,8 +3,6 @@
 ```bash
 $ npm install vue-next-ellipsis
 ```
-
-
 Register the component
 
 ```html
