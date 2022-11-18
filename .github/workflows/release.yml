@@ -25,8 +25,8 @@ jobs:
           git config user.email "<>"
       - name: Build
         run: |
-          pnpm
-          pnpm build
+          npm
+          npm build
       - name: publish
         run: |
           npm publish

@@ -27,7 +27,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
+    "preview": "pnpm run -C playground build",
     "release": "standard-version"
   },
   "dependencies": {
