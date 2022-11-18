@@ -1,7 +1,7 @@
 {
   "name": "vue-next-ellipsis",
   "packageManager": "pnpm@6.32.3",
-  "version": "0.0.2",
+  "version": "0.0.2-alpha.1",
   "type": "module",
   "main": "./dist/vue-next-ellipsis.umd.cjs",
   "module": "./dist/vue-next-ellipsis.js",
@@ -28,7 +28,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vue-tsc --noEmit && vite build",
-    "preview": "cd playground && npm i && npm run -C playground build",
+    "preview": "npm run -C playground pre && npm run -C playground build",
     "release": "standard-version"
   },
   "dependencies": {
@@ -38,6 +38,7 @@
   "peerDependencies": {
     "vite": "^2.0.0"
   },
+  "license": "MIT",
   "devDependencies": {
     "@huogui/eslint-config": "^1.1.30",
     "@types/node": "^18.11.9",

@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pre":"npm install"
   },
   "dependencies": {
-    "vue-next-ellipsis":"workspace:*"
+    "vue-next-ellipsis":"^0.0.1-alpha.5"
   }
 }
