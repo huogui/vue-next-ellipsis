@@ -5,14 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:playground": "vite build --config vite.preview.config.ts",
+    "build:playground": "vite build",
     "preview": "vite preview",
     "pre": "npm install"
   },
   "peerDependencies": {
     "vite": "^2.0.0"
-  },
-  "dependencies": {
-    "vue-next-ellipsis": "^0.0.2-alpha.1"
   }
 }

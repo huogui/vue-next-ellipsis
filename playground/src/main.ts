@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import Ellipsis from 'vue-next-ellipsis'
+import Ellipsis from '../../src/index'
 import App from './App.vue'
 
 const app = createApp(App)
