@@ -2,9 +2,9 @@ import type { ExtractPropTypes } from 'vue'
 
 export interface IEllipsisProps {
   content: string
-  rows: number
-  foldText: string
-  ellipsisText: string
+  rows?: number
+  foldText?: string
+  ellipsisText?: string
 }
 
 export const ellipsisProps = {
