@@ -32,4 +32,4 @@ jobs:
         with:
           TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist
+          FOLDER: playground/dist
