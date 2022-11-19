@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:playground": "vite build",
+    "build:playground": "vite build --config vite.preview.config.ts",
     "preview": "vite preview",
     "pre": "npm install"
   },
