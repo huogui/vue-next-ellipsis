@@ -1,7 +1,7 @@
 {
   "name": "vue-next-ellipsis",
   "packageManager": "pnpm@6.32.3",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/vue-next-ellipsis.umd.cjs",
   "module": "./dist/vue-next-ellipsis.js",
