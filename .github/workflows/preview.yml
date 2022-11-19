@@ -31,5 +31,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           TOKEN: ${{ secrets.HUOGUI_TOKEN }}
-          BRANCH: main
+          BRANCH: gh-pages
           FOLDER: playground/dist
