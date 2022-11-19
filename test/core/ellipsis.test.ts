@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Ellipsis from '../../components/ellipsis.vue'
+import Ellipsis from '../../src/components/ellipsis.vue'
 
 describe('ellipsis.vue', () => {
   test('renders the correct style', () => {
