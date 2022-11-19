@@ -16,6 +16,7 @@ import { Ellipsis } from 'vue-next-ellipsis';
       :rows="3"
       fold-text="全文>"
       ellipsis-text="..."
+      @fold-click="location.href = 'https://github.com/huogui'"
     />
   </div>
 </template>
@@ -33,6 +34,5 @@ app.use(Ellipsis)
 app.mount('#app')
 
 ```
-
 
 

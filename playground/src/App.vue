@@ -1,7 +1,7 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+const lookMore = () => {
+  location.href = 'https://github.com/huogui'
+}
 </script>
 
 <template>
@@ -11,12 +11,14 @@ import HelloWorld from './components/HelloWorld.vue'
       :rows="3"
       fold-text="全文>"
       ellipsis-text="..."
+      @fold-click="lookMore"
     />
   </div>
 </template>
 
 <style scoped>
 .wrapper{
-  font-size:20px;
+  font-size:16px;
+  letter-spacing: 1px;
 }
 </style>

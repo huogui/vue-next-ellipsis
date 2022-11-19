@@ -10,12 +10,12 @@ const emit = defineEmits(ellipsisEmits)
 const { content, foldVisible, rows, ellipsisText, foldText } = props
 
 const beforeRefreshFunc = ref<() => void>()
-const realContentLenth = ref(0)
+const realContentLength = ref(0)
 const realContentBoxRef = ref<HTMLElement>()
 const realContentBoxTailRef = ref<HTMLElement>()
 
 const realContent = computed(() => {
-  return content.substr(0, realContentLenth.value)
+  return content.substr(0, realContentLength.value)
 })
 const watchData = computed(() => {
   return [content, foldText, ellipsisText, rows, foldVisible]
@@ -25,7 +25,7 @@ const refresh = async () => {
   beforeRefreshFunc.value && (beforeRefreshFunc.value)()
   let stopLoop = false
   beforeRefreshFunc.value = () => { stopLoop = true }
-  realContentLenth.value = content.length
+  realContentLength.value = content.length
   const checkLoop = async (start: number, end: number) => {
     if (stopLoop || start + 1 >= end) {
       beforeRefreshFunc.value = undefined
@@ -40,16 +40,16 @@ const refresh = async () => {
     const overflow = realContentBoxTailRect.bottom > realContentBoxRect.bottom
 
     if (overflow)
-      end = realContentLenth.value
+      end = realContentLength.value
     else
-      start = realContentLenth.value
+      start = realContentLength.value
 
-    realContentLenth.value = Math.floor((start + end) / 2)
+    realContentLength.value = Math.floor((start + end) / 2)
     await nextTick()
     checkLoop(start, end)
   }
   await nextTick()
-  checkLoop(0, realContentLenth.value)
+  checkLoop(0, realContentLength.value)
 }
 
 const foldClickHandle = (event: MouseEvent | TouchEvent) => {
@@ -75,7 +75,7 @@ watch(watchData, () => {
     </div>
     <div class="r-ellipsis__real-box" role="realBox">
       <span>{{ realContent }}</span>
-      <slot v-if="realContentLenth < content.length || foldVisible" name="ellipsis">
+      <slot v-if="realContentLength < content.length || foldVisible" name="ellipsis">
         <span>{{ ellipsisText }}</span>
         <span class="r-ellipsis__ellipsis-btn" @click="foldClickHandle">{{ foldText }}</span>
       </slot>
