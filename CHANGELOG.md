@@ -4,10 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.7](https://github.com/huogui/vue-next-ellipsis/compare/v0.0.8...v0.0.7) (2022-11-23)
 
-### [0.0.8](https://github.com/huogui/vue-next-ellipsis/compare/v0.0.6...v0.0.8) (2022-11-23)
-
-### [0.0.7](https://github.com/huogui/vue-next-ellipsis/compare/v0.0.6...v0.0.7) (2022-11-23)
-
 ### [0.0.6](https://github.com/huogui/vue-next-ellipsis/compare/v0.0.7...v0.0.6) (2022-11-23)
 
 ### [0.0.5](https://github.com/huogui/vue-next-ellipsis/compare/v0.0.4...v0.0.5) (2022-11-19)
