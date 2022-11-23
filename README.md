@@ -1,3 +1,4 @@
+# vue-next-ellipsis [![npm](https://img.shields.io/npm/v/vue-next-ellipsis.svg)](https://npmjs.com/package/vue-next-ellipsis)
 ## Install and basic usage
 
 ```bash
@@ -34,5 +35,33 @@ app.use(Ellipsis)
 app.mount('#app')
 
 ```
+
+## Options
+
+```ts
+export const ellipsisProps = {
+  content: {
+    type: String,
+    default: '',
+  },
+  rows: {
+    type: Number,
+    default: 3,
+  },
+  foldVisible: Boolean,
+  foldText: {
+    type: String,
+    default: 'more>',
+  },
+  ellipsisText: {
+    type: String,
+    default: '...',
+  },
+}
+
+```
+## License
+
+MIT
 
 
