@@ -22,8 +22,6 @@ import { Ellipsis } from 'vue-next-ellipsis';
   </div>
 </template>
 ```
-or
-
 ```ts
 // main.ts
 import { createApp } from 'vue'
